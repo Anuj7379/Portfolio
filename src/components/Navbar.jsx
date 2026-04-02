@@ -28,7 +28,7 @@ const Navbar = () => {
               <Link
                 to={link.to}
                 smooth={true}
-                duration={500}
+                duration={100}
                 offset={link.name === "Contact" ? -20 : -80}
                 spy={true}
                 activeClass="text-orange-500"

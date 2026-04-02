@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import profileImage from "../assets/profile.jpg"; // replace with your image
+import profileImage from "../assets/profile.png"; // replace with your image
 
 const About = () => {
   return (

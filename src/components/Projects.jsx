@@ -1,144 +1,143 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { ExternalLink, Github } from "lucide-react";
+
 import chatAppImg from "../assets/chat-app.png";
 import complainImg from "../assets/complain-system.png";
 import healthcareImg from "../assets/health.png";
+import AILearning from "../assets/AILearning.png";
+import ScracthSketch from "../assets/ScracthSketch.png";
 
 const projects = [
   {
     title: "Health Care Management System",
     description:
-      "A full-stack hospital management system for patients and admins. Features include patient registration, appointment booking, complaint tracking, and record management. Built using React, Node.js, Express, and MongoDB. shadCN for UI components.",
+      "A full-stack hospital management system with patient registration, appointments, and admin dashboard. Built with React, Node.js, Express, and MongoDB.",
     image: healthcareImg,
     link: "https://hbms-hbms.netlify.app/",
-    github: "https://admin-hms-hms.netlify.app/", // 🔗 add your repo link here
+    github: "https://admin-hms-hms.netlify.app/",
+    tech: ["React", "Node.js", "MongoDB"],
   },
   {
     title: "College Complaint System",
     description:
-      "A full-stack platform enabling students to submit, track, and manage complaints seamlessly, with real-time status updates and admin monitoring. Built with React and Firebase for a smooth, scalable workflow.",
+      "A platform for students to submit and track complaints with real-time updates and admin monitoring using Firebase.",
     image: complainImg,
     link: "https://campuscare-85a37.web.app/",
+    tech: ["React", "Firebase"],
+  },
+  {
+    title: "AI Powered Learning",
+    description:
+      "AI-based learning platform with personalized recommendations and adaptive tests.",
+    image: AILearning,
+    link: "https://learnwithaii.netlify.app/",
+    tech: ["React", "Node.js", "AI"],
+  },
+  {
+    title: "Scratch Sketch",
+    description:
+      "Canvas-based drawing and document editor using Next.js, Excalidraw, and HTML5 Canvas.",
+    image: ScracthSketch,
+    link: "https://newsktst.vercel.app/",
+    tech: ["Next.js", "Excalidraw"],
   },
   {
     title: "Chat App",
     description:
-      "A real-time chat application with dynamic user presence, room-based messaging, and a modern, responsive interface. Built with React, Node.js, Express, and Socket.IO for instant communication.",
+      "Real-time chat app with rooms, presence, and instant messaging using Socket.IO.",
     image: chatAppImg,
     link: "https://github.com/Anuj7379/src",
+    github: "https://github.com/Anuj7379",
+    tech: ["React", "Socket.IO"],
   },
 ];
 
 const Projects = () => {
   return (
-    <section
-      id="projects"
-      className="relative py-32 bg-gradient-to-b from-[#05010a] via-[#0a0018] to-[#05010a] overflow-hidden"
-    >
-      {/* Background Gradient Orbs */}
-      <div className="absolute inset-0">
-        <div className="absolute -top-32 left-10 w-72 h-72 bg-pink-500/30 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute top-40 right-20 w-96 h-96 bg-cyan-500/30 rounded-full blur-[150px] animate-pulse delay-300" />
+    <section id="projects" className="bg-[#020617] py-24 px-6">
+      
+      {/* Heading */}
+      <div className="max-w-7xl mx-auto text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-white">
+          My Projects
+        </h2>
+        <p className="text-gray-400 mt-4 text-lg">
+          A selection of projects showcasing my skills in full-stack development
+        </p>
       </div>
 
-      {/* Flowing Neon Line Across Section */}
-      <motion.div
-        initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
-        className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500"
-      />
-
-      {/* Section Heading */}
-      <motion.h2
-        initial={{ opacity: 0, y: -40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="relative z-10 text-center text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#ff0080] via-[#7928ca] to-[#00f0ff] drop-shadow-[0_0_25px_rgba(0,240,255,0.6)]"
-      >
-        ⚡ My Projects
-      </motion.h2>
-
-      {/* Projects Grid */}
-      <div className="relative z-10 mt-20 max-w-7xl mx-auto grid md:grid-cols-3 gap-20 px-6">
+      {/* Grid */}
+      <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 80 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: i * 0.2 }}
+            transition={{ duration: 0.4, delay: i * 0.1 }}
             viewport={{ once: true }}
-            className="group relative rounded-2xl overflow-hidden bg-white/5 backdrop-blur-xl 
-                       border border-white/10 hover:border-cyan-400/40 transition-all 
-                       shadow-[0_0_30px_rgba(0,240,255,0.2)] 
-                       hover:shadow-[0_0_60px_rgba(255,0,128,0.4)] 
-                       flex flex-col"
+            className="group bg-[#0f172a] border border-white/10 rounded-xl overflow-hidden 
+                       hover:border-blue-500/40 transition-all duration-300 flex flex-col"
           >
-            {/* Floating Neon Accent Shapes */}
-            <div className="absolute -top-8 -left-8 w-24 h-24 rounded-full border border-pink-500/40 animate-spin-slow" />
-            <div className="absolute -bottom-8 -right-8 w-28 h-28 rounded-full border border-cyan-500/40 animate-pulse" />
-
             {/* Image */}
-            <div className="relative w-full h-56 overflow-hidden">
+            <div className="h-48 overflow-hidden">
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70" />
             </div>
 
             {/* Content */}
-            <div className="p-6 text-center flex flex-col flex-1">
-              <h3 className="text-2xl font-bold text-white drop-shadow-lg mb-3">
+            <div className="p-5 flex flex-col flex-1">
+              <h3 className="text-xl font-semibold text-white mb-2">
                 {project.title}
               </h3>
-              <p className="text-gray-300 text-sm mb-6 flex-grow">
+
+              <p className="text-gray-400 text-sm mb-4 line-clamp-3">
                 {project.description}
               </p>
 
+              {/* Tech Tags */}
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((t, idx) => (
+                  <span
+                    key={idx}
+                    className="text-xs bg-white/10 text-gray-300 px-2 py-1 rounded"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
               {/* Buttons */}
-              {i === 0 ? (
-                // First project has two buttons
-                <div className="flex flex-col sm:flex-row gap-3 justify-center mt-auto">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-5 py-2 rounded-full text-white font-medium 
-                               bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 
-                               shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.8)] 
-                               hover:scale-105 transition-all duration-300 ease-in-out"
-                  >
-                    For user
-                  </a>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-5 py-2 rounded-full text-white font-medium 
-                               bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 
-                               shadow-lg hover:shadow-[0_0_25px_rgba(255,0,128,0.8)] 
-                               hover:scale-105 transition-all duration-300 ease-in-out"
-                  >
-                  For Admin
-                  </a>
-                </div>
-              ) : (
-                // Other projects only one button
+              <div className="mt-auto flex gap-3">
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-5 py-2 rounded-full text-white font-medium 
-                             bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 
-                             shadow-lg hover:shadow-[0_0_25px_rgba(0,240,255,0.8)] 
-                             hover:scale-105 transition-all duration-300 ease-in-out mt-auto"
+                  className="flex items-center justify-center gap-2 flex-1 px-4 py-2 
+                             bg-blue-600 hover:bg-blue-500 text-white text-sm 
+                             rounded-md transition"
                 >
-                  🚀 View Project
+                  <ExternalLink size={16} />
+                  Live
                 </a>
-              )}
+
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 flex-1 px-4 py-2 
+                               border border-white/20 hover:border-white/40 
+                               text-gray-300 text-sm rounded-md transition"
+                  >
+                    <Github size={16} />
+                    Code
+                  </a>
+                )}
+              </div>
             </div>
           </motion.div>
         ))}

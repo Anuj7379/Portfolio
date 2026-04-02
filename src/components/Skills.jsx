@@ -1,33 +1,56 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code2, Users, Wrench, Trophy } from "lucide-react";
 
 const skills = [
   {
-    title: "Technical Skills",
-    icon: <Code2 className="w-6 h-6 text-blue-500" />,
+    title: "Frontend",
     items: [
-      "HTML", "CSS", "JavaScript", "C", "Java", "React.js",
-      "Node.js", "Express.js", "MongoDB", "SQL",
-      "Firebase",  "Tailwind CSS", "ShadCN",
+      "HTML", "CSS", "JavaScript", "TypeScript",
+      "React.js", "Next.js",
+      "Tailwind CSS", "ShadCN",
+    ],
+  },
+  {
+    title: "Backend",
+    items: [
+      "Node.js", "Express.js",
+      "REST APIs", "JWT Authentication",
+    ],
+  },
+  {
+    title: "Database",
+    items: [
+      "MongoDB", "SQL", "Firebase",
+    ],
+  },
+{
+  title: "DevOps & Tools",
+  items: [
+    "Docker",
+    "Kubernetes",
+    "Git",
+    "GitHub",
+    "Postman",
+    "VS Code",
+    "AWS (EC2, IAM, EBS)",
+  ],
+},
+  {
+    title: "Core CS",
+    items: [
+      "Data Structures", "Algorithms",
+      "OOPs", "DBMS", "Operating Systems",
     ],
   },
   {
     title: "Soft Skills",
-    icon: <Users className="w-6 h-6 text-purple-500" />,
     items: [
-      "Problem Solving", "Critical Thinking", "Teamwork",
-      "Leadership", "Work Ethic", "Time Management", "Adaptability",
+      "Problem Solving", "Teamwork",
+      "Leadership", "Time Management",
     ],
   },
   {
-    title: "Tools",
-    icon: <Wrench className="w-6 h-6 text-pink-500" />,
-    items: ["Git & GitHub", "VS Code", "Postman", "Firebase Console"],
-  },
-  {
-    title: "Problem-Solving Platforms",
-    icon: <Trophy className="w-6 h-6 text-yellow-500" />,
+    title: "Coding Profiles",
     items: [
       { name: "LeetCode", link: "https://leetcode.com/u/AnujSharma9565/" },
       { name: "GitHub", link: "https://github.com/Anuj7379" },
@@ -38,66 +61,67 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section
-      id="skills"
-      className="py-20 relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-black dark:via-gray-950 dark:to-black"
-    >
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500"
-        >
-          ⚡ Skills Dashboard
-        </motion.h2>
+    <section id="skills" className="bg-[#020617] py-24 px-6">
+      
+      {/* Heading */}
+      <div className="max-w-7xl mx-auto text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-bold text-white">
+          Skills
+        </h2>
+        <p className="text-gray-400 mt-4 text-lg">
+          Technologies and tools I work with
+        </p>
+      </div>
 
-        {/* Dashboard Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skills.map((category, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              whileHover={{ y: -6 }}
-              className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md p-6 shadow-sm hover:shadow-lg transition"
-            >
-              {/* Header */}
-              <div className="flex items-center gap-3 mb-4">
-                {category.icon}
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                  {category.title}
-                </h3>
-              </div>
+      {/* Grid */}
+      <div className="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skills.map((category, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: idx * 0.1 }}
+            viewport={{ once: true }}
+            className="bg-[#0f172a] border border-white/10 rounded-xl p-5 
+                       hover:border-blue-500/40 transition-all duration-300"
+          >
+            {/* Header */}
+            <div className="flex items-center gap-2 mb-4">
+              {category.icon}
+              <h3 className="text-lg font-semibold text-white">
+                {category.title}
+              </h3>
+            </div>
 
-              {/* Items */}
-              <div className="flex flex-wrap gap-2">
-                {category.items.map((skill, i) =>
-                  typeof skill === "string" ? (
-                    <span
-                      key={i}
-                      className="px-3 py-1 text-xs rounded-md bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:scale-105 transition"
-                    >
-                      {skill}
-                    </span>
-                  ) : (
-                    <a
-                      key={i}
-                      href={skill.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3 py-1 text-xs rounded-md bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 border border-gray-200 dark:border-gray-700 text-blue-600 dark:text-blue-400 hover:scale-105 transition"
-                    >
-                      {skill.name} ↗
-                    </a>
-                  )
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+            {/* Items */}
+            <div className="flex flex-wrap gap-2">
+              {category.items.map((skill, i) =>
+                typeof skill === "string" ? (
+                  <span
+                    key={i}
+                    className="text-xs px-2 py-1 rounded-md 
+                               bg-white/5 border border-white/10 
+                               text-gray-300 hover:bg-white/10 transition"
+                  >
+                    {skill}
+                  </span>
+                ) : (
+                  <a
+                    key={i}
+                    href={skill.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs px-2 py-1 rounded-md 
+                               bg-blue-600/10 border border-blue-500/30 
+                               text-blue-400 hover:bg-blue-600/20 transition"
+                  >
+                    {skill.name} ↗
+                  </a>
+                )
+              )}
+            </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
